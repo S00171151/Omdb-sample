@@ -1,3 +1,34 @@
-<p>
-  movie works!
-</p>
+<div class="ui grid">
+  <div class="five wide column">
+    <h3>{{movieDetails.Title}}</h3>
+    <img class="ui small image" src="{{movieDetails.Poster}}">
+  </div>
+  <div class="six wide column">
+    <div class="ui list">
+      <div class="item"><label><b>Title:</b> {{movieDetails.Title}}</label></div>
+      <div class="item"><label><b>Year:</b> {{movieDetails.Year}}</label></div>
+      <div class="item"><label><b>Poster:</b> {{movieDetails.Poster}}</label></div>
+      <div class="item"><label><b>Released:</b> {{movieDetails.Released}}</label></div>
+      <div class="item"><label><b>Genre:</b> {{movieDetails.Genre}}</label></div>
+      <div class="item" *ngIf="movieData"><label><b>My Review:</b> {{movieDetails.MyReview}}</label></div>
+    </div>
+
+      <div class="item"><label><b>Ratings:</b></label></div>
+      <div *ngFor="let rating of movieDetails.Ratings">
+        <div class="item"><label>{{rating.Source}}</label></div>
+        <div class="item"><label>{{rating.Value}}</label></div>
+      </div>
+    
+      <div *ngIf="movieDetails.MyReview" class="item">
+        <label>My Review: {{movieDetails.MyReview}}</label>
+      </div>
+  </div>
+
+    <div class="five wide column">
+      <button class="ui primary button" (click)="removeFromFavourites()">Remove from Favourites</button>
+      <br><br>
+      <textarea placeholder="Add short Review" #myReview></textarea>
+      <br><br>
+      <button class="ui primary button" (click)=addReview(myReview.value)> Add Review </button>
+    </div>
+  </div>

@@ -1,6 +1,6 @@
 <div class="ui raised segment">
   <h1 class="ui header">
-    <img class="ui image" src="../assets/images/movie-s.jpg">
+    <img class="ui image" src="../assets/images/movies.jpg">
     <div class="content">
       My Movies Library
     </div>
@@ -8,26 +8,32 @@
   <form class="ui form">
     <div class="field">
       <label>Movie Title</label>
-      <input name="movie-title" placeholder="Westworld" type="text" #movieName>
+      <input name="movie-title" placeholder="inception" type="text" #movieName>
     </div>
-    <button class="ui primary button" type="submit" (click)="getmovieDetails(movieName.value)">Get the movie  Details</button>
+    <button class="ui primary button" type="submit" (click)="getMovieDetails(movieName.value)">Get the movie Details</button>
   </form>
 </div>
-<div class="ui form segment" *ngIf="movieData">
+
+<div class="ui form segment" *ngIf="movieData"> 
   <div class="ui grid">
-    <div class=" eight wide column">
+    <div class="eight wide column">
       <h1>{{movieData.Title}}</h1>
       <img src="{{movieData.Poster}}" height="{{posterHeight}}">
     </div>
-    <div class=" eight wide column">
+    <div class="eight wide column">
       <button class="ui primary button" (click)="addToFavourites()">Add to Favourites</button>
       <button class="ui button" (click)="cancel()">Cancel</button>
     </div>
   </div>
 </div>
+
 <div class="ui raised segment" *ngIf="movies.length>0">
   <h1>Favourites</h1>
   <div class="ui raised segment" *ngFor="let movie of movies">
-    <app-movie> [movieDetails]="movie" (removemovie)="removeFromFavourites($event)"></app-movie>
+    <!-- "movieDetails" matches our "movieDetails" Input on "movie.component.ts",
+    but our movie data is still not being picked up by the Movie component.
+    --> 
+    <app-movie> [movieDetails]="movie" (removeMovie)="removeFromFavourites($event)"></app-movie>
   </div>
 </div>
+

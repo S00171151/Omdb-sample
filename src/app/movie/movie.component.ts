@@ -15,12 +15,12 @@ export class MovieComponent implements OnInit {
   ngOnInit() {
   }
 
-  onRemove(){
-    this.removeMovie.emit(this.movieDetails);
+  removeFromFavourites(){
+this.removeMovie.emit(this.movieDetails);
   }
 
-  // addReview(myReview: string) {
-  //   this.movieDetails.MyReview = myReview;
-  // }
+   addReview(myReview: string) {
+     this.movieDetails.MyReview = myReview;
+   }
 
 }

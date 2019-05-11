@@ -8,8 +8,8 @@ import { IOMDBResponse } from '../omdbresponse';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
-  movies : IOMDBResponse[];
   movieData : IOMDBResponse;
+  movies : IOMDBResponse[];
   posterHeight: number = 200;
   errorMessage: string;
 
