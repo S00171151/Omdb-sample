@@ -29,11 +29,7 @@
 
 <div class="ui raised segment" *ngIf="movies.length>0">
   <h1>Favourites</h1>
-  <div class="ui raised segment" *ngFor="let movie of movies">
-    <!-- "movieDetails" matches our "movieDetails" Input on "movie.component.ts",
-    but our movie data is still not being picked up by the Movie component.
-    --> 
-    <app-movie> [movieDetails]="movie" (removeMovie)="removeFromFavourites($event)"></app-movie>
+  <div class="ui raised segment" *ngFor="let movie of movies">   
+    <app-movie [movieDetails]="movie" (removeMovie)="removeFromFavourites($event)"></app-movie>
   </div>
 </div>
-

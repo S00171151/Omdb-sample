@@ -22,5 +22,4 @@ this.removeMovie.emit(this.movieDetails);
    addReview(myReview: string) {
      this.movieDetails.MyReview = myReview;
    }
-
 }
